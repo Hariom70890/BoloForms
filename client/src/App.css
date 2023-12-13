@@ -1,0 +1,126 @@
+.App {
+   text-align: center;
+   background: radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent)
+}
+
+.App-logo {
+   height: 40vmin;
+   pointer-events: none;
+
+   /* Center the logo vertically and horizontally */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+   .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+   }
+}
+
+.App-header {
+   background-color: #282c34;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: calc(10px + 2vmin);
+   color: white;
+}
+
+.App-link {
+   color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+/* src/App.css */
+.form-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Center the form items horizontally */
+   margin: 20px; /* Add some margin for spacing */
+}
+
+.form-item {
+   padding: 10px;
+   width: 250px;
+   background-color: #eee;
+   border: 1px solid #ccc;
+   margin: 10px 0; /* Increase margin for better separation */
+   cursor: pointer;
+}
+
+.drop-area {
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Center the drop area items horizontally */
+}
+
+.drop-target {
+   border: 2px dashed #ccc;
+   padding: 20px;
+   text-align: center;
+   cursor: pointer;
+   margin: 10px;
+   width: 250px; /* Set a fixed width for consistency */
+}
+
+.drop-target.country {
+   border-color: #00b894;
+}
+
+.drop-target.city {
+   border-color: #0984e3;
+}
+
+
+/* --------------------------------------------- */
+
+/* ComprehensiveForm.css */
+
+.comprehensive-form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+
+.passage {
+  margin-bottom: 20px;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+}
+
+.options li {
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.options li.selected {
+  background-color: #3f51b5;
+  color: #fff;
+}
