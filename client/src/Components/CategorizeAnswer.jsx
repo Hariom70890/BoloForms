@@ -20,9 +20,10 @@ const CategorizeAnswer = () => {
   useEffect(() => {
     // Load questions from the backend when the component mounts
     axios
-      .get("http://localhost:4500/answer/comprehensive")
+      .get("http://localhost:4500/question/category-and-items")
       .then((response) => {
-        setQuestions(response.data);
+        console.log(response)
+        setQuestions(response.data.items);
       })
       .catch((error) => {
         console.error("Error fetching questions from the database", error);

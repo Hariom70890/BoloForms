@@ -43,29 +43,40 @@ questionRouter.post("/category", async (req, res) => {
    }
  });
 
+//  ---------------------------
 questionRouter.post("/category-and-items", async (req, res) => {
-   const { category, items } = req.body;
- 
+   const { category, name } = req.body;
+
    try {
-     // Save category to the CategoryModel
-     const newCategory = new CategoryModel({
-       category: category,
-     });
-     await newCategory.save();
- 
-     // Save items to the ItemsModel
-     const itemDocuments = items.map((item) => ({
-       name: item.name,
-       category: category,
-     }));
-     await ItemsModel.insertMany(itemDocuments);
- 
-     res.status(200).json({ msg: "Category and items added successfully" });
+      const cat = new CategoryModel({
+         category,
+         category:name,
+      });
+      await cat.save();
+
+      res.status(200).json({ msg: "Items added to the category successfully" });
    } catch (error) {
-     console.error("Error adding category and items to the database", error);
-     res.status(400).json({ error: error.message });
+      console.error("Error adding items to category", error);
+      res.status(500).json({ error: "Internal server error" });
    }
- });
+});
+
+questionRouter.get("/category-and-items", async (req, res) => {
+
+   try {
+      // Find the category in the database
+      const category = await CategoryModel.find();
+      console.log(category)
+      
+      const items = category.items || ["No Name are available"];
+
+      res.status(200).json({ items });
+   } catch (error) {
+      console.error("Error retrieving items from category", error);
+      res.status(500).json({ error: "Internal server error" });
+   }
+});
+// ----------------------------
 
 questionRouter.post("/cloze", async (req, res) => {
    const { text, option, answer } = req.body;

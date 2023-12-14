@@ -29,7 +29,9 @@ const ClozeAnswer = () => {
     e.preventDefault();
     const option = e.dataTransfer.getData('text/plain');
     const updatedQuestions = questions.map((q) => {
-      if (q.id === questionId) {
+
+      console.log(q.id,questionId,option)
+      if (q.id == questionId) {
         q.text = q.text.replace('_____', option);
       }
       return q;

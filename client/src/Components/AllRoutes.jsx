@@ -10,13 +10,14 @@ const AllRoutes = () => {
       <Routes>
          <Route path="/formgeneration" element={<FormGenerationScreen />} />
          <Route path="/answer" element={<AnswerScreen />} />
-         <Route path="/" element={
-            <div style={{height:"100vh"}}>
-<br /><br />
-<br />
-            <Heading style={{color:"white" }}>Please Click on the above Tabs</Heading>
-            </div>
-         } />
+         <Route
+            path="/"
+            element={
+               <div style={{ height: "100vh" }}>
+                  <AnswerScreen/>
+               </div>
+            }
+         />
       </Routes>
    );
 };
